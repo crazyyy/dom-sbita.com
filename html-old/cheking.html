@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://dom-sbita.com/check -->
+<html data-livestyle-extension="available" hola_ext_inject="disabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./cheking_files/style.css">
+<link rel="stylesheet" type="text/css" href="./cheking_files/cuprum.css">
+<link rel="stylesheet" type="text/css" href="./cheking_files/mediaqueris.css">
+<script type="text/javascript" src="./cheking_files/jquery.min.js"></script>
+<title>dom-sbita.com - Проверка заказа</title>
+
+            </head>
+<body>
+<script type="text/javascript">
+	(function(){
+		var sitehelp_s = document.createElement('script');
+		sitehelp_s.type = 'text/javascript';
+		sitehelp_s.async = true;
+		sitehelp_s.src = top.location.protocol + '//c.sitehelp.im/code.cgi?c=3615' + (top.location.protocol=='http:' ? '' : '&ssl=1') + '&rnd=' + Math.random();
+		document.body.appendChild(sitehelp_s);
+	})();
+</script><script type="text/javascript" async="" src="./cheking_files/code.cgi"></script>
+<div class="wrap">
+
+<div><img src="./cheking_files/logo.png" class="logo"></div>
+
+<div class="nav">
+    <div class="menu">
+        <ul>
+            <li><a href="http://dom-sbita.com/">Товары</a></li>
+            <li><a href="./cheking_files/cheking.html">Проверка заказа</a></li>
+            <li><a href="http://dom-sbita.com/reviews">Отзывы</a></li>
+                            <li><a href="http://dom-sbita.com/page/3">Работа с нами!</a></li>
+                            <li><a href="http://dom-sbita.com/page/5">Мы на форумах.</a></li>
+                            <li><a href="http://dom-sbita.com/page/6">Как проверить платеж.</a></li>
+                            <li><a href="http://dom-sbita.com/page/7">ОПТ</a></li>
+                    </ul>
+    </div>
+</div>
+<div class="clr"></div>
+ <div class="content"> <h2 class="page-headding">Проверка заказа</h2>
+<div class="buy-good instruction">
+
+    <div id="paid">
+        <div>
+            <label>Номер заказа</label><input type="text" id="id"><br>
+            <label>Комментарий к платежу</label><input type="text" id="comment"><br>
+        </div><br>
+        <center><img id="ajaxLoader" style="display: none;" src="./cheking_files/ajax-loader.gif"></center>
+        <div id="info">
+            После оплаты нажмите кнопку, чтобы получить адрес
+        </div>
+
+        <div class="number">
+            <input class="paidButton" name="yt0" type="button" value="Проверить оплату" id="yt0">        </div>
+
+
+        <div class="text-center text-muted">
+            Проверить платеж по чеку можно <a target="_blank" href="https://qiwi.ru/support/check.action">тут</a>
+            <br>
+        </div>
+    </div>
+
+</div>
+ </div> 
+<div class="clr"></div>
+
+<div class="footer">
+</div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('body').on('click','#yt0',function(){jQuery.ajax({'data':{'id':$("#id").val(),'comment':$("#comment").val()},'beforeSend':function(){ $("#ajaxLoader").show();},'complete':function(){ $("#ajaxLoader").hide();},'url':'/check','cache':false,'success':function(html){jQuery("#info").html(html)}});return false;});
+});
+/*]]>*/
+</script>
+
+
+</div></body></html>
