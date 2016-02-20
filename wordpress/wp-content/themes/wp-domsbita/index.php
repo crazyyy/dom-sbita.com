@@ -1,31 +1,31 @@
-<!DOCTYPE html>
-<!-- saved from url=(0021)http://dom-sbita.com/ -->
-<html data-livestyle-extension="available" hola_ext_inject="disabled">
-
+<!doctype html>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" type="text/css" href="./index_files/style.css">
-  <link rel="stylesheet" type="text/css" href="./index_files/cuprum.css">
-  <link rel="stylesheet" type="text/css" href="./index_files/mediaqueris.css">
-  <title>dom-sbita.com</title>
+  <title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' :'; } ?> <?php bloginfo( 'name' ); ?></title>
 
+  <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
+
+  <link href='https://fonts.googleapis.com/css?family=Cuprum:400,700,400italic' rel='stylesheet' type='text/css'>
+
+
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/selectivizr.js"></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/respond.js"></script>
+  <![endif]-->
+  <!-- css + javascript -->
+  <?php wp_head(); ?>
 </head>
+<body <?php body_class(); ?>>
 
-<body>
-  <script type="text/javascript">
-    (function() {
-      var sitehelp_s = document.createElement('script');
-      sitehelp_s.type = 'text/javascript';
-      sitehelp_s.async = true;
-      sitehelp_s.src = top.location.protocol + '//c.sitehelp.im/code.cgi?c=3615' + (top.location.protocol == 'http:' ? '' : '&ssl=1') + '&rnd=' + Math.random();
-      document.body.appendChild(sitehelp_s);
-    })();
-  </script>
-  <script type="text/javascript" async="" src="./index_files/code.cgi"></script>
+
   <div class="wrap">
 
-    <div><img src="./index_files/logo.png" class="logo"></div>
+    <div><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo"></div>
 
     <div class="nav">
       <div class="menu">
