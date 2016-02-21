@@ -2,7 +2,11 @@
 
   <div id="notify">Уважаемые покупатели. Наш сайт кратковременно, но часто отключается. Просто перезагружайте его, пока не заработает. Дольше чем 15 минут сайт не бывает в отключке. Спасибо за понимание. </div>
 
+
+
+
   <div style="margin:0 auto;text-align: center; max-width: 60%;">
+  <?php wp_list_categories('orderby=name&show_count=0'); ?>
     <div class="button-big selected">
       <span class="txt"><a href="http://dom-sbita.com/?city_id=5">Краснодар</a></span>
     </div>
@@ -58,14 +62,12 @@
   </div>
   <div class="clr"></div>
 
-
-
-
   <div class="article_block">
-    <?php query_posts("cat=14"); ?>
+    <?php query_posts("cat=1"); ?>
 
       <?php get_template_part('loop'); ?>
 
     <?php wp_reset_query(); ?>
   </div><!-- article_block -->
+
 <?php get_footer(); ?>
