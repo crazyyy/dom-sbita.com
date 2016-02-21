@@ -581,7 +581,36 @@ function disable_emojicons_tinymce( $plugins ) {
 }
 
 
+//hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_topics_hierarchical_taxonomy', 0 );
+//create a custom taxonomy name it topics for your posts
+function create_topics_hierarchical_taxonomy() {
+// Add new taxonomy, make it hierarchical like categories
+//first do the translations part for GUI
+  $labels = array(
+    'name' => _x( 'Телефон', 'taxonomy general name' ),
+    'singular_name' => _x( 'Телефон', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search' ),
+    'all_items' => __( 'All' ),
+    'parent_item' => __( 'Parent' ),
+    'parent_item_colon' => __( 'Parent' ),
+    'edit_item' => __( 'Edit' ),
+    'update_item' => __( 'Update' ),
+    'add_new_item' => __( 'Add New' ),
+    'new_item_name' => __( 'New Name' ),
+    'menu_name' => __( 'Телефон' ),
+  );
+// Now register the taxonomy
+  register_taxonomy('topics',array('post'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'phones' ),
+  ));
 
+}
 
 
 

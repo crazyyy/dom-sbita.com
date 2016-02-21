@@ -32,7 +32,11 @@ body {
 .wrap {
   width: 100%;
 }
-
+.number-content {
+  p {
+    text-align: center !important;
+  }
+}
 a {
   text-decoration: none;
 
