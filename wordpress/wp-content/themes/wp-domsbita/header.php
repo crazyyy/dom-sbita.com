@@ -9,8 +9,8 @@
 
   <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
 
-  <!-- icons -->
-  <link href="<?php echo get_template_directory_uri(); ?>/favicon.ico" rel="shortcut icon">
+  <link href='https://fonts.googleapis.com/css?family=Cuprum:400,700,400italic' rel='stylesheet' type='text/css'>
+
 
   <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
@@ -21,28 +21,16 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!-- wrapper -->
-<div class="wrapper">
-  <header role="banner">
-    <div class="inner">
 
-      <div class="logo">
-        <?php if ( is_front_page() && is_home() ){ } else { ?>
-          <a href="<?php echo home_url(); ?>">
-            <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-            <?php if ( is_front_page() && is_home() ){
-            } else { ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
 
-      <nav class="nav" role="navigation">
+  <div class="wrap">
+
+    <div><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo"></div>
+
+    <div class="nav">
+      <div class="menu">
         <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
+      </div>
+    </div>
+    <div class="clr"></div>
 
-    </div><!-- /.inner -->
-  </header><!-- /header -->
-
-  <section role="main">
-    <div class="inner">
