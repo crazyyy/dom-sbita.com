@@ -1,12 +1,29 @@
-<?php get_header(); ?>
+<?php /* Template Name: Home Page */ get_header(); ?>
 
-  <div id="notify">Уважаемые покупатели. Наш сайт кратковременно, но часто отключается. Просто перезагружайте его, пока не заработает. Дольше чем 15 минут сайт не бывает в отключке. Спасибо за понимание. </div>
+    <div id="notify">Уважаемые покупатели. Наш сайт кратковременно, но часто отключается. Просто перезагружайте его, пока не заработает. Дольше чем 15 минут сайт не бывает в отключке. Спасибо за понимание. </div>
+
+    <?php
+      $kat = 0;
+      $na_akran = '<div style="margin:0 auto; text-align: center; max-width: 60%;">' . "\n";
+      $dochernii_kategorii = get_categories('child_of=' . $kat . '&hide_empty=0');
+      foreach ($dochernii_kategorii as $dochernaya_kategoria) :
+          if ($kat == $dochernaya_kategoria->category_parent) :
+              $na_akran .= "\t" . '<div class="button-big"><span class="txt"><a href="' .
+                  get_category_link($dochernaya_kategoria->cat_ID) . '" title="' .
+                  $dochernaya_kategoria->category_description . '">';
+              $na_akran .= $dochernaya_kategoria->cat_name . '</a></span>';
+              $na_akran .= '</div>' . "\n";
+          endif;
+      endforeach;
+      $na_akran .= '</div>' . "\n";
+      print $na_akran;
+    ?>
 
 
 
 
-  <div style="margin:0 auto;text-align: center; max-width: 60%;">
-  <?php wp_list_categories('orderby=name&show_count=0'); ?>
+  <div style="margin:0 auto; text-align: center; max-width: 60%;">
+
     <div class="button-big selected">
       <span class="txt"><a href="http://dom-sbita.com/?city_id=5">Краснодар</a></span>
     </div>
