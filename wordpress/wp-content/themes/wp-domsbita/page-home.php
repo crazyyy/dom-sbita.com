@@ -3,7 +3,7 @@
     <div id="notify">Уважаемые покупатели. Наш сайт кратковременно, но часто отключается. Просто перезагружайте его, пока не заработает. Дольше чем 15 минут сайт не бывает в отключке. Спасибо за понимание. </div>
 
     <?php
-      $kat = 0;
+      $kat = 75;
       $na_akran = '<div style="margin:0 auto; text-align: center; max-width: 60%;">' . "\n";
       $dochernii_kategorii = get_categories('child_of=' . $kat . '&hide_empty=0');
       foreach ($dochernii_kategorii as $dochernaya_kategoria) :
@@ -21,70 +21,65 @@
 
 
 
+<div class="nav1">
+<div class="line1">
+<ul>
+                <li class="cat-item" style="display:none">
 
-  <div style="margin:0 auto; text-align: center; max-width: 60%;">
+                </style>>
 
-    <div class="button-big selected">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=5">Краснодар</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=9">ОМСК</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=11">Москва</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=12">Ижевск</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=14">Астрахань</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=15">Иркутск</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=16">Саратов</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=17">Хабаровск</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=18">Ростов-на-Дону</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=20">Кемерово</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=21">Анапа</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=22">Ангарск</a></span>
-    </div>
-    <div class="button-big ">
-      <span class="txt"><a href="http://dom-sbita.com/?city_id=23">ШЕЛЕХОВ</a></span>
-    </div>
-  </div>
+                    <input class="filter-region-list-link" type="button" onclick="history.back()" value="Назад">
 
-  <div class="nav1">
-    <div class="line1">
-      <ul>
-        <li><a class="w-nav-link item-district selected" href="http://dom-sbita.com/?city_id=5">Все</a></li>
-        <li><a class="w-nav-link item-district " href="http://dom-sbita.com/?district_id=7">Центральный</a></li>
-        <li><a class="w-nav-link item-district " href="http://dom-sbita.com/?district_id=8">Карсунский</a></li>
-        <li><a class="w-nav-link item-district " href="http://dom-sbita.com/?district_id=9">Прикубанский</a></li>
-        <li><a class="w-nav-link item-district " href="http://dom-sbita.com/?district_id=97">Фестивальный</a></li>
-      </ul>
-    </div>
+                </li>
+<li>
 
-  </div>
-  <div class="clr"></div>
+<?php wp_list_categories('hide_empty=0&title_li=0&child_of=47'); ?>
+
+
+</li>
+</ul>
+</div>
+</div>
+
 
   <div class="article_block">
-    <?php query_posts("cat=1"); ?>
 
-      <?php get_template_part('loop'); ?>
 
-    <?php wp_reset_query(); ?>
+
+<?php
+// Запрос. $args - параметры запроса
+query_posts('cat=47');
+
+// Цикл WordPress
+if( have_posts() ){
+    while( have_posts() ){
+       the_post(); ?>
+
+  <div class="elem">
+    <div class="article">
+      <div class="title">
+        <span><?php the_title(); ?></span>
+      </div>
+
+      <div class="price">
+        <span class="c"><?php the_field('price'); ?></span>
+        <span class="t">р.</span>
+      </div>
+      <div class="ostatok">
+        <span class="t1">В наличии: <span class="c1"><?php the_field('quantity'); ?> </span>шт.</span>
+      </div>
+
+      <div class="button_sale"><a class="button btn-in-stock" href="<?php the_permalink(); ?>">Купить</a></div>
+    </div>
+  </div>
+
+<?php    }
+    wp_reset_query();
+} else {
+   // текст/код, если постов нет
+}
+?>
+
   </div><!-- article_block -->
-
 <?php get_footer(); ?>
+
